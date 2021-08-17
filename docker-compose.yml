@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: CKN_netviz_dev
+    build:
+        context: ./services/web
+        dockerfile: Dockerfile
+    command: flask run --host=0.0.0.0
+    volumes:
+      - ./services/web/:/usr/src/app/
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env.dev
