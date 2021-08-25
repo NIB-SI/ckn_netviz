@@ -92,12 +92,37 @@ function drawNetwork(data){
                     nodes: {
                         shape: 'box',
                         color: '#9BDBFF'
+                    },
+                    physics: {
+                        enabled: true,
+                        solver: 'barnesHut',
+
+                        barnesHut: {
+                            gravitationalConstant: -5000,
+                            centralGravity: 0.5,
+                            springLength: 100,
+                            springConstant: 0.16,
+                            damping: 0.25
+                        },
+                        stabilization: {
+                             enabled: true,
+                             iterations: 10,
+                             // updateInterval: 5,
+                             fit: true
+                         },
+                    },
+                    configure: {
+                        enabled: false
                     }
+
 
     };
     postprocess_edges(data);
     postprocess_nodes(data);
     var network = new vis.Network(container, data, options);
+    network.on("stabilized", function (params) {
+        network.fit({animation: {duration: 500}});
+       });
 }
 
 function postprocess_edges(data) {
