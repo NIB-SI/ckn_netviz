@@ -5,7 +5,7 @@ import networkx as nx
 from flask import Flask, flash, g, redirect, render_template, request, session
 from flask_cors import CORS, cross_origin
 
-import utils
+from . import utils
 
 
 BASEDIR = os.path.dirname(__file__)
