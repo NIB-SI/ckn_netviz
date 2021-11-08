@@ -100,7 +100,7 @@ function drawNetwork(data){
                         solver: 'barnesHut',
 
                         barnesHut: {
-                            gravitationalConstant: -5000,
+                            gravitationalConstant: -10000,
                             centralGravity: 0.5,
                             springLength: 100,
                             springConstant: 0.16,
