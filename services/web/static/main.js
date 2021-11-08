@@ -1,3 +1,6 @@
+$(window).resize(function() {
+    scale();
+});
 
 $( document ).ready(function() {
     $('#nodeList').val('');
@@ -57,7 +60,6 @@ $( document ).ready(function() {
     // $('#extract_and_draw_button').click();
 
 });
-
 
 function drawNetwork(data){
      var nodes = new vis.DataSet(data.nodes);
@@ -145,6 +147,6 @@ function postprocess_nodes(data) {
 
 
 function scale() {
-    $('#networkView').height(verge.viewportH()-10);
+    $('#networkView').height(verge.viewportH()-40);
     $('#networkView').width($('#networkViewContainer').width());
 }
