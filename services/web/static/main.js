@@ -96,7 +96,7 @@ function drawNetwork(data){
                         color: '#9BDBFF'
                     },
                     physics: {
-                        enabled: true,
+                        enabled: false,
                         solver: 'barnesHut',
 
                         barnesHut: {
