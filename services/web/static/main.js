@@ -77,7 +77,7 @@ function drawNetwork(data){
                     edges: {
                         // arrows: 'to',
                         smooth: {
-                            enabled: true,
+                            enabled: false,
                             //type: 'continuous'
                             type: 'dynamic',
                             forceDirection: 'none'
