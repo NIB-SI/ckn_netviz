@@ -22,7 +22,7 @@ $( document ).ready(function() {
         load: function (query, callback) {
           if (!query.length) return callback();
           $.ajax({
-            url: "/suggest?term=" + encodeURIComponent(query),
+            url: "/ckn/suggest?term=" + encodeURIComponent(query),
             type: "GET",
             error: function () {
               callback();
@@ -36,7 +36,7 @@ $( document ).ready(function() {
 
     $('#extract_and_draw_button').click(function(){
         $.ajax({
-          url: "/extract_network",
+          url: "/ckn/extract_network",
           dataType: 'json',
           type: "POST",
           contentType: 'application/json; charset=utf-8',
