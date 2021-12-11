@@ -9,7 +9,7 @@ from . import utils
 
 
 BASEDIR = os.path.dirname(__file__)
-ckn = nx.read_gpickle(os.path.join(BASEDIR, 'data/LKN.pickle'))
+ckn = nx.read_gpickle(os.path.join(BASEDIR, 'data/AtCKN.pickle'))
 
 
 def create_app(test_config=None):

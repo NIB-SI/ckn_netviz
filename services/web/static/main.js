@@ -1,3 +1,6 @@
+$(window).resize(function() {
+    scale();
+});
 
 $( document ).ready(function() {
     $('#nodeList').val('');
@@ -58,7 +61,6 @@ $( document ).ready(function() {
 
 });
 
-
 function drawNetwork(data){
      var nodes = new vis.DataSet(data.nodes);
      var edges = new vis.DataSet(data.edges);
@@ -75,7 +77,7 @@ function drawNetwork(data){
                     edges: {
                         // arrows: 'to',
                         smooth: {
-                            enabled: true,
+                            enabled: false,
                             //type: 'continuous'
                             type: 'dynamic',
                             forceDirection: 'none'
@@ -94,11 +96,11 @@ function drawNetwork(data){
                         color: '#9BDBFF'
                     },
                     physics: {
-                        enabled: true,
+                        enabled: false,
                         solver: 'barnesHut',
 
                         barnesHut: {
-                            gravitationalConstant: -5000,
+                            gravitationalConstant: -10000,
                             centralGravity: 0.5,
                             springLength: 100,
                             springConstant: 0.16,
@@ -145,6 +147,6 @@ function postprocess_nodes(data) {
 
 
 function scale() {
-    $('#networkView').height(verge.viewportH()-10);
+    $('#networkView').height(verge.viewportH()-40);
     $('#networkView').width($('#networkViewContainer').width());
 }
