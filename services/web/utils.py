@@ -40,7 +40,7 @@ def extract_subgraph(g, nodes, k=2, ignoreDirection=False, fuzzySearch=True):
         g = nx.Graph(g.copy())
     all_neighbours = set(nodes)
     fromnodes = nodes
-    for i in range(k):
+    for _ in range(k):
         neighbours = set(itertools.chain.from_iterable([g.neighbors(node) for node in fromnodes]))  # - set(fromnodes)
         if not neighbours:
             break
@@ -54,12 +54,7 @@ def extract_subgraph(g, nodes, k=2, ignoreDirection=False, fuzzySearch=True):
 
 
 def graph2json(g):
-    nlist = []
-    for node in g.nodes:
-        nlist.append({'id': g.nodes[node]['id'],
-                      'label': node})
-                      # title is displayed on hover in vis.js
-                      # 'title': 'Name: {}\nSource: {}\nLink: {}'.format(node, 'NIB', 'http://mylink.com')})
+    nlist = [{'id': g.nodes[node]['id'], 'label': node} for node in g.nodes]
     elist = []
     for edge in g.edges:
         fr = edge[0]
@@ -72,6 +67,6 @@ def graph2json(g):
 
 
 def visualize_graphviz(g, path, output='pdf'):
-    dotfile = path + '.dot'
+    dotfile = f'{path}.dot'
     nx.drawing.nx_pydot.write_dot(g, dotfile)
-    subprocess.call(['dot', '-T{}'.format(output), dotfile, '-o', '{}.{}'.format(path, output)])  # , cwd=outdir)
+    subprocess.call(['dot', f'-T{output}', dotfile, '-o', f'{path}.{output}'])
